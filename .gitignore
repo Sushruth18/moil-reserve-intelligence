@@ -29,3 +29,6 @@ playwright/.cache/
 data/cache/**
 # Retrained-but-not-yet-installed forecaster artifacts (train_shortfall_model.py; installed with --ship)
 oresight-backend/models/candidate/
+
+# Pre-change database backups (production row dumps; never commit)
+backups/
