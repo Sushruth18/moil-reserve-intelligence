@@ -8,7 +8,7 @@
 
 *Smart India Hackathon 2026 · Problem Statement **SIH26009** · Ministry of Steel / MOIL Ltd.*
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-oresite.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://oresite.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-manganex--moil--oresight.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://manganex-moil-oresight.vercel.app)
 [![API Docs](https://img.shields.io/badge/API-OpenAPI%20%2F%20Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)](#-api-reference)
 [![Tests](https://img.shields.io/badge/Tests-~152%20passing-2EA44F?style=for-the-badge&logo=pytest&logoColor=white)](#-quality--engineering-practices)
 
@@ -411,7 +411,7 @@ Four tabs — each **lazy-loaded behind its own error boundary** so one broken t
 | Notifications | **sonner** toasts · Radix toast primitives |
 | Theming | **next-themes** (light / dark) |
 | E2E testing | **Playwright** (`pnpm test:smoke`) |
-| Deployment | **Vercel** — [oresite.vercel.app](https://oresite.vercel.app) |
+| Deployment | **Vercel** — [manganex-moil-oresight.vercel.app](https://manganex-moil-oresight.vercel.app) |
 
 ### Data Science & Geospatial — repo root
 

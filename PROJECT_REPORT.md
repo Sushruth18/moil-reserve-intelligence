@@ -74,7 +74,7 @@ graph path — explainability is a hard design constraint, not a feature.
 | Notifications | **sonner** toasts, Radix toast primitives |
 | Theming | **next-themes** (light/dark) |
 | E2E testing | **Playwright** (`pnpm test:smoke`) |
-| Deployment | **Vercel** (`oresite.vercel.app`) |
+| Deployment | **Vercel** (`manganex-moil-oresight.vercel.app`) |
 
 ### 2.3 Data Science / Geospatial Pipeline (repo root)
 

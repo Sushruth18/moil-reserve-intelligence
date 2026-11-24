@@ -147,10 +147,10 @@ path except `/assets/*` to `index.html` so deep links like /site/1 survive a rel
 
 - Set the Vercel project's Root Directory to `oresight-frontend` (**INFERRED**: vercel.json lives there; project settings are not in git).
 - Set `VITE_API_BASE_URL` (the public backend URL) in the Vercel env BEFORE the build; it is baked into the bundle.
-- CORS: the backend currently hardcodes `allow_origins=["http://localhost:5173", "https://oresite.vercel.app", "*"]` (credentials on) in
+- CORS: the backend currently hardcodes `allow_origins` = `http://localhost:5173`, a stale Vercel alias (not the current site) and `"*"` (credentials on) in
   `oresight-backend/app/main.py` and **ignores** the `CORS_ORIGINS` setting / env var, so setting it changes nothing: every origin is
   allowed today. Wiring `main.py` to `settings.CORS_ORIGINS` (and dropping `"*"`) is a pending code change, not done yet.
-  Production is the Render API (https://oresight-api.onrender.com) on Supabase Postgres + Aura Neo4j; hosting config is not in the repo.
+  Production is the Vercel frontend (https://manganex-moil-oresight.vercel.app) calling the Render API (https://oresight-api.onrender.com) on Supabase Postgres + Aura Neo4j; hosting config is not in the repo.
 - Local check of the production bundle: `cd oresight-frontend; pnpm build; pnpm serve` (vite preview on :5173; if `pnpm dev` holds 5173, preview moves to the next free port; read the URL it prints).
 
 ## Optional, retraining the shortfall forecaster (not needed to run the app)
