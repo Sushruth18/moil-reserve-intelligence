@@ -1,4 +1,5 @@
 import { mockData, findSite, buildEquipmentMetrics, buildEquipmentMetricsById } from './mockData';
+import { PRODUCTION_WINDOW_DAYS } from '../lib/productionWindow';
 
 // Live API is the default path; mock is the offline/venue-wifi fallback,
 // opted into explicitly with VITE_USE_MOCK=true when the backend isn't reachable.
@@ -366,7 +367,7 @@ export const api = {
   async getSiteWorkspace(id) {
     const siteId = Number(id);
     const [site, equipmentForSite, productionForSite, risks, zones, primaryRisk] = await Promise.all([
-      this.getSite(siteId), this.getEquipment(siteId), this.getProduction(siteId, 30), this.getRiskEvents(siteId, false), this.getReserveZones(siteId), this.getSitePrimaryRisk(siteId),
+      this.getSite(siteId), this.getEquipment(siteId), this.getProduction(siteId, PRODUCTION_WINDOW_DAYS), this.getRiskEvents(siteId, false), this.getReserveZones(siteId), this.getSitePrimaryRisk(siteId),
     ]);
     // Scoped to this site's own (typically few) risk events, not
     // getRecommendations()'s system-wide fan-out across every open risk
@@ -387,7 +388,7 @@ export const api = {
     if (useMock) return { equipment: await delay(mockData.equipment), production: await delay(mockData.production), notes: await this.getSiteNotes(1) };
     const sites = await this.getSites();
     const equipmentBySite = await Promise.all(sites.map((site) => this.getEquipment(site.id)));
-    const productionBySite = await Promise.all(sites.map((site) => this.getProduction(site.id, 30)));
+    const productionBySite = await Promise.all(sites.map((site) => this.getProduction(site.id, PRODUCTION_WINDOW_DAYS)));
     const notesForSite = await this.getSiteNotes(1);
     return { equipment: equipmentBySite.flat(), production: productionBySite.flat(), notes: notesForSite };
   },
@@ -395,5 +396,5 @@ export const api = {
 };
 
 function sitesFor(client, sites) {
-  return sites.map((site) => client.getProduction(site.id, 30));
+  return sites.map((site) => client.getProduction(site.id, PRODUCTION_WINDOW_DAYS));
 }
